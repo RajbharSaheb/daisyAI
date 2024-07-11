@@ -27,6 +27,11 @@
             "required": true,
             "value": ""
         },
+        "PORT": {
+            "description": "Port details",
+            "required": true,
+            "value": ""
+        },
         "API_HASH": {
             "description": "Get API_HASH from my.telegram.org",
             "required": true,
