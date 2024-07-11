@@ -1,5 +1,5 @@
 # A Docker web service
-  - type: web
+  - type: worker
     name: DaisyAI
     env: python
     ports: - 8080:8080
