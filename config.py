@@ -6,4 +6,5 @@ class Config(object):
     BOT_TOKEN = os.getenv("BOT_TOKEN")
     API_ID = os.getenv("API_ID")
     API_HASH = os.getenv("API_HASH")
+    PORT = os.environ.get('PORT', '8080')
     mediaPattern = r"\b(https?://(?:(.*?)\.)?(?:instagram\.com|instagr\.am|t\.co|twitter\.com)(?:[^\s]*))\b" #pin\.it|pinterest\.com|
