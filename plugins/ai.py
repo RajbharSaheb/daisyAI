@@ -20,7 +20,11 @@ async def chatbots(_, m: t.Message):
             for i in images:
                 media.append(t.InputMediaPhoto(i))
             media[0] = t.InputMediaPhoto(images[0], caption=output)
-            await _.send_media_group((link unavailable), media, reply_to_message_id=(link unavailable))
+            await _.send_media_group(
+                m.chat.id, 
+                media, 
+                reply_to_message_id=m.id
+                )
             return await m.reply_text(output)
         else:
             return await m.reply_text(output['parts'][0]['text'] if model == "gemini" else output)
@@ -31,7 +35,7 @@ async def askAboutImage(_, m: t.Message, mediaFiles: list, prompt: str):
     try:
         images = []
         for media in mediaFiles:
-            image = await _.download_media(media.file_id, file_name=f'./downloads/{(link unavailable)}_ask.jpg')
+            image = await _.download_media(media.file_id, file_name=f'./downloads/{m.from_user.id}_ask.jpg')
             images.append(image)
         output = await geminiVision(prompt if prompt else "what's this?", "geminiVision", images)
         await m.reply_text(output)
